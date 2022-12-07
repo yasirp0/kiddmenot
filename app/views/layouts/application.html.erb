@@ -16,6 +16,32 @@
   </head>
 
   <body>
+
+   <ul>
+    <li>
+<a href="/items">Items</a>
+    </li>
+
+
+<% if @current_user == nil %>
+    <li>
+<a href="/user_sign_in">Sign in</a>
+    </li>
+    <li>
+<a href="/user_sign_up">Sign up</a>
+    </li>
+    <% else %>
+
+    <li>
+<a href="/user_sign_out">Sign out</a>
+    </li>
+    </ul>
+    <% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<p style="color: purple"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

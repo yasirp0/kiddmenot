@@ -1,0 +1,183 @@
+<div>
+  <div>
+    <h1>
+      Welcome to kiddmenot!
+    </h1>
+        <h1>
+      List of all items
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new item
+    </h2>
+
+    <form action="/insert_item" method="post">
+      <div>
+        <label for="user_name_box">
+          User Name
+        </label>
+
+        <input type="text" id="user_name_box" name="query_user_name">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="quantity_box">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity_box" name="query_quantity">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price">
+      </div>
+
+      <div>
+        <label for="item_name_box">
+          Item name
+        </label>
+
+        <input type="text" id="item_name_box" name="query_item_name">
+      </div>
+
+      <div>
+        <input type="checkbox" id="available_box" name="query_available" value="1">
+
+        <label for="available_box">Available</label>
+      </div>
+
+      <button>
+        Create item
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Quantity
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Item name
+        </th>
+
+        <th>
+          Available
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_items.each do |an_item| %>
+      <tr>
+        <td>
+          <%= an_item.id %>
+        </td>
+
+        <td>
+          <%= an_item.user_id %>
+        </td>
+
+        <td>
+          <%= an_item.description %>
+        </td>
+
+        <td>
+          <%= an_item.quantity %>
+        </td>
+
+        <td>
+          <%= an_item.image %>
+        </td>
+
+        <td>
+          <%= an_item.price %>
+        </td>
+
+        <td>
+          <%= an_item.item_name %>
+        </td>
+
+        <td>
+          <%= an_item.available %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_item.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_item.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/items/<%= an_item.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
