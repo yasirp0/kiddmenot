@@ -31,11 +31,18 @@ class SavedItemsController < ApplicationController
   end
 
   def update
+
+    #    self.load_current_user
+    if @current_user == the_saved_item.user
+
     the_id = params.fetch("path_id")
     the_saved_item = SavedItem.where({ :id => the_id }).at(0)
 
     the_saved_item.user_id = params.fetch("query_user_id")
     the_saved_item.item_id = params.fetch("query_item_id")
+
+    #added
+    end
 
     if the_saved_item.valid?
       the_saved_item.save

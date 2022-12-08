@@ -1,8 +1,17 @@
 class ItemsController < ApplicationController
   def index
-    matching_items = Item.all
+    #@movies = Movie.all
 
-    @list_of_items = matching_items.order({ :created_at => :desc })
+    #@q = Movie.ransack(params[:q])
+    #@movies = @q.result
+
+    @q = Item.ransack(params[:q])
+    @list_of_items = @q.result.order({ :created_at => :desc })
+
+
+    #matching_items = Item.all
+
+    #@list_of_items = matching_items.order({ :created_at => :desc })
 
     render({ :template => "items/index.html.erb" })
   end
