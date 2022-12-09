@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+  def about
+    render({ :template => "items/about.html.erb" })
+  end
+  
   def index
     #@movies = Movie.all
 
